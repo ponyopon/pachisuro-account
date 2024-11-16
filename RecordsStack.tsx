@@ -11,18 +11,21 @@ const RecordsStack: React.FC = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Records"
+        name="RecordsStack"
         component={RecordsScreen}
-        options={({ navigation }) => ({
+        options={({ navigation, route }) => ({
           title: "Records",
           headerLeft: () => (
             <MaterialIcons
-              name="add" // Plus icon in the top-left corner
-              size={24}
-              color="white" // Set to a visible color
-              onPress={() => navigation.navigate("AddRecord")} // Navigate to AddRecord screen
-              style={{ marginLeft: 15 }}
-            />
+                name="swap-vert" // Filter icon
+                size={24}
+                color="white" // Set to a visible color
+                onPress={() => {
+                  const isDescending = route.params?.isSortedDescending ?? true; 
+                  navigation.setParams({ isSortedDescending: !isDescending });
+                }}
+                style={{ marginLeft: 15 }}
+              />
           ),
           headerRight: () => (
             <View style={{ flexDirection: "row", marginRight: 15 }}>
@@ -31,16 +34,9 @@ const RecordsStack: React.FC = () => {
                 size={24}
                 color="white" // Set to a visible color
                 onPress={() => navigation.navigate("AddRecord")} // Navigate to AddRecord screen
-                style={{ marginRight: 15 }}
+                // style={{ marginRight: 15 }}
               />
-              <MaterialIcons
-                name="filter-list" // Filter icon
-                size={24}
-                color="white" // Set to a visible color
-                onPress={() => {
-                  // Add filter functionality here
-                }}
-              />
+              
             </View>
           ),
           headerStyle: {
@@ -52,7 +48,13 @@ const RecordsStack: React.FC = () => {
       <Stack.Screen
         name="AddRecord"
         component={AddRecordScreen}
-        options={{ title: "Add Record" }}
+        options={{ title: "Add Record",
+          headerStyle: {
+            backgroundColor: "#121212", // Set background color if needed
+          },
+          headerTintColor: "white", // Set header text color
+         }}
+        
       />
     </Stack.Navigator>
   );

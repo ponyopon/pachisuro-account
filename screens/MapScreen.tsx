@@ -30,9 +30,9 @@ const MapScreen: React.FC = () => {
     getLocation();
   }, []);
 
-  if (loading) {
-    return <ActivityIndicator size="large" color="#0000ff" />;
-  }
+  // if (loading) {
+  //   return <ActivityIndicator size={100} color="#0000ff" />;
+  // }
   console.log(currentLocation);
 
   return (

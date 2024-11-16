@@ -15,7 +15,6 @@ const historySlice = createSlice({
   reducers: {
     addRecord: (state, action: PayloadAction<Omit<Record, "id">>) => {
       const newRecord = { ...action.payload, id: Date.now() };
-      console.log(state);
       state.records.push(newRecord); // Update `state.records` instead of `state`
     },
     deleteRecord: (state, action: PayloadAction<number>) => {

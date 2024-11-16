@@ -55,7 +55,7 @@ export default function App() {
               options={{
                 tabBarIcon: ({ color, size }) => (
                   <Icon name="bar-chart" size={size} color={color} />
-                )
+                ),
               }}
             />
           </Tab.Navigator>

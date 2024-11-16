@@ -1,9 +1,6 @@
 import React from "react";
-import { View, Text, StyleSheet, Dimensions, ScrollView } from "react-native";
-import { useSelector } from "react-redux";
-import { RootState } from "../store";
+import { View, Text, StyleSheet } from "react-native";
 import { LineGraph } from "./lineGraph";
-import { chartProps } from "../types";
 
 type profitProps = {
   labels: string[];
@@ -14,10 +11,10 @@ type profitProps = {
 export const ProfitSection = (props: profitProps) => {
   const { labels, inputData, outputData, width } = props;
   // Calculate profitData based on inputData and outputData
-  const profitData = inputData.map((input, index) => input - outputData[index]);
+  const profitData = outputData.map((input, index) => input - inputData[index]);
   return (
     <View style={styles.section}>
-      <Text style={styles.title}>Net Profit</Text>
+      <Text style={styles.title}>収支</Text>
       <Text style={styles.amount}>
         ¥{profitData.reduce((a, b) => a + b, 0)}
       </Text>

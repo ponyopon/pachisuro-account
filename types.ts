@@ -12,10 +12,12 @@ export interface Record {
   input: number;
   output: number;
   memo: string;
+  // machineType : 'pachinko' | 'slot'
 }
 
 export type chartProps = {
   labels: string[];
   data: number[];
   width: number;
+  height?: number
 };

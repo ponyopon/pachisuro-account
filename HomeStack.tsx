@@ -10,7 +10,7 @@ const HomeStack: React.FC = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Home"
+        name="HomeStack"
         component={HomeScreen}
         options={({ navigation }) => ({
           title: "Home",

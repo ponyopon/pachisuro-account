@@ -5,7 +5,7 @@ import { chartConfig } from "../config/chartConfig";
 import { chartProps } from "../types";
 
 export const LineGraph = (props: chartProps) => {
-  const { labels, data, width } = props;
+  const { labels, data, width, height } = props;
   return (
     <LineChart
       data={{
@@ -13,7 +13,7 @@ export const LineGraph = (props: chartProps) => {
         datasets: [{ data: data }],
       }}
       width={width - 40}
-      height={200}
+      height={height? height : 200}
       chartConfig={chartConfig}
       bezier
       style={styles.chart}

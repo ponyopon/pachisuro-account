@@ -29,7 +29,7 @@ const StatsScreen: React.FC = () => {
       {/* Total Spending */}
       <TotalSpendingSection
         labels={labels}
-        data={outputData}
+        data={inputData}
         width={screenWidth}
       />
 
@@ -39,7 +39,7 @@ const StatsScreen: React.FC = () => {
       {/* Net Profit */}
       <ProfitSection
         labels={labels}
-        inputData={outputData}
+        inputData={inputData}
         outputData={outputData}
         width={screenWidth}
       />
